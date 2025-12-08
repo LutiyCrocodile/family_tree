@@ -1,0 +1,7 @@
+.gradle/
+.idea/*
+!.idea/codeStyles/
+build/
+app/libs-source-data/
+credential.properties
+local.properties
