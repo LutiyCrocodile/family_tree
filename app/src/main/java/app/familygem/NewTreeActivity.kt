@@ -153,7 +153,7 @@ class NewTreeActivity : BaseActivity() {
     private suspend fun downloadExample(downloadButton: Button) {
         val downloadManager = getSystemService(DOWNLOAD_SERVICE) as DownloadManager
         val url = "https://www.googleapis.com/drive/v3/files/1yMZgqhHx6_yP-_mjrUULDiNAaFTrAYQv?" +
-                "alt=media&key=AIzaSyDN3OS52Wxs58px8fPcPKOUdC0WBZFOCSY"
+                "alt=media&key=${BuildConfig.GOOGLE_API_KEY}"
         val zipFile = File(externalCacheDir, "the Simpsons.zip")
         if (zipFile.exists()) zipFile.delete()
         val request = DownloadManager.Request(Uri.parse(url))

@@ -27,10 +27,13 @@ android {
         versionName '1.2'
         resourceConfigurations += ['ru']
         def passKey = ''
+        def googleApiKey = ''
         if (credential) {
             passKey = credential['passKey']
+            googleApiKey = credential['googleApiKey']
         }
         buildConfigField 'String', 'PASS_KEY', '"' + passKey + '"'
+        buildConfigField 'String', 'GOOGLE_API_KEY', '"' + googleApiKey + '"'
         testInstrumentationRunner 'androidx.test.runner.AndroidJUnitRunner'
         multiDexEnabled true
     }
