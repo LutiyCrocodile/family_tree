@@ -106,7 +106,6 @@ public abstract class DetailActivity extends AppCompatActivity {
     protected LinearLayout box;
     protected Object object; // Name, Media, SourceCitation etc.
     private final List<Egg> eggs = new ArrayList<>(); // List of all the possible editable pieces
-    private List<Pair<String, String>> otherEvents; // Events for the Family FAB
     protected boolean surnameBefore; // The given name comes after the surname, e.g. "/Simpson/ Homer"
     protected Person oneFamilyMember; // A family member used to hide in the FAB 'Link person'
     private DateEditorLayout dateEditor;
@@ -122,18 +121,6 @@ public abstract class DetailActivity extends AppCompatActivity {
         fabView = findViewById(R.id.fab);
         actionBar = getSupportActionBar();
 
-        // List of other Family events
-        String[] otherEventTags = {"ANUL", "CENS", "DIVF", "ENGA", "MARB", "MARC", "MARL", "MARS", "RESI", "EVEN", "NCHI"};
-        otherEvents = new ArrayList<>();
-        for (String tag : otherEventTags) {
-            EventFact event = new EventFact();
-            event.setTag(tag);
-            String label = event.getDisplayType();
-            if (Global.settings.expert)
-                label += " — " + tag;
-            otherEvents.add(new Pair<>(tag, label));
-        }
-        Collections.sort(otherEvents, (item1, item2) -> item1.second.compareTo(item2.second));
 
         object = Memory.getLastObject();
         if (object == null) {
@@ -216,14 +203,6 @@ public abstract class DetailActivity extends AppCompatActivity {
             }
             eventSubMenu.add(0, 130, 0, marriageLabel);
             eventSubMenu.add(0, 131, 0, divorceLabel);
-
-            // The other events that can be placed
-            SubMenu otherSubMenu = eventSubMenu.addSubMenu(0, 100, 0, R.string.other);
-            int i = 0;
-            for (Pair<String, String> event : otherEvents) {
-                otherSubMenu.add(0, 200 + i, 0, event.second);
-                i++;
-            }
         }
         if (object instanceof Source && findViewById(R.id.sourceCitation) == null) {
             SubMenu subRepository = menu.addSubMenu(0, 100, 0, R.string.repository);
@@ -385,12 +364,6 @@ public abstract class DetailActivity extends AppCompatActivity {
             ((Family)object).addEventFact(divorce);
             Memory.add(divorce);
             startActivity(new Intent(this, EventActivity.class));
-            toBeSaved = true;
-        } else if (id >= 200) { // Place another event
-            EventFact event = new EventFact();
-            event.setTag(otherEvents.get(id - 200).first);
-            ((Family)object).addEventFact(event);
-            refresh();
             toBeSaved = true;
         }
         if (toBeSaved) TreeUtil.INSTANCE.save(true, Memory.getLeaderObject());

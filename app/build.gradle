@@ -25,8 +25,7 @@ android {
         targetSdk 35
         versionCode 28
         versionName '1.2'
-        resourceConfigurations += ['ar', 'bg', 'ckb', 'cs', 'da', 'de', 'en', 'eo', 'es', 'fa', 'fr', 'hr', 'hu', 'in', 'it', 'iw', 'kn',
-                                   'lt', 'mr', 'nb', 'nl', 'pl', 'pt', 'ru', 'sk', 'sl', 'sr', 'sv', 'ta', 'ti', 'tr', 'uk', 'vi', 'zh']
+        resourceConfigurations += ['ru']
         def passKey = ''
         if (credential) {
             passKey = credential['passKey']
@@ -94,6 +93,9 @@ dependencies {
     // To avoid ClassNotFoundException org.apache.xerces.parsers.SAXParser when building with minifyEnabled
     implementation 'xerces:xercesImpl:2.12.2'
     testImplementation 'junit:junit:4.13.2'
+    testImplementation 'androidx.arch.core:core-testing:2.2.0'
+    testImplementation 'org.mockito:mockito-core:5.3.1'
+    testImplementation 'org.jetbrains.kotlinx:kotlinx-coroutines-test:1.10.2'
     androidTestImplementation 'androidx.test:runner:1.6.2'
     androidTestImplementation 'androidx.test:rules:1.6.1'
     androidTestImplementation 'androidx.test.ext:junit-ktx:1.2.1'

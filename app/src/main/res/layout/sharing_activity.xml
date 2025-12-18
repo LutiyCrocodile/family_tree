@@ -15,12 +15,6 @@
             android:orientation="vertical"
             android:padding="16dp">
 
-            <TextView
-                style="@style/AppTheme.Title"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/title" />
-
             <EditText
                 android:id="@+id/share_title"
                 android:layout_width="match_parent"
@@ -57,12 +51,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="@string/submitter" />
-
-            <TextView
-                style="@style/AppTheme.Suggestion"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="@string/usually_your_name" />
 
             <EditText
                 android:id="@+id/share_submitter"

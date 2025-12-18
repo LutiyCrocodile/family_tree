@@ -1,16 +1,11 @@
 package app.familygem.merge
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import android.widget.ProgressBar
 import android.widget.Toast
-import app.familygem.BuildConfig
-import app.familygem.Global
 import app.familygem.R
-import app.familygem.constant.Extra
 import app.familygem.databinding.MergeResultFragmentBinding
-import app.familygem.purchase.PurchaseActivity
 
 class ResultFragment : BaseFragment(R.layout.merge_result_fragment) {
 
@@ -55,14 +50,10 @@ class ResultFragment : BaseFragment(R.layout.merge_result_fragment) {
             }
             // Merge button
             bind.mergeButton.setOnClickListener {
-                if (Global.settings.premium || BuildConfig.PASS_KEY.isEmpty()) {
-                    if (bind.mergeRadioAnnex.isChecked)
-                        model.performAnnexMerge(requireContext())
-                    else if (bind.mergeRadioGenerate.isChecked)
-                        model.performGenerateMerge(requireContext(), bind.mergeRetitle.text.toString())
-                } else {
-                    startActivity(Intent(context, PurchaseActivity::class.java).putExtra(Extra.STRING, R.string.merge_tree))
-                }
+                if (bind.mergeRadioAnnex.isChecked)
+                    model.performAnnexMerge(requireContext())
+                else if (bind.mergeRadioGenerate.isChecked)
+                    model.performGenerateMerge(requireContext(), bind.mergeRetitle.text.toString())
             }
         }
     }

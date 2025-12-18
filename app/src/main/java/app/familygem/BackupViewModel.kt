@@ -106,15 +106,17 @@ class BackupViewModel(application: Application) : AndroidViewModel(application) 
     /** Updates backup button state. */
     fun updateState() {
         canBackup.value = saveState.value is SaveState.Success && treeItems.any { it.tree.backup }
-                && backupJob?.isActive != true && recoverState.value !is RecoverState.Error // Could be RecoverState.Notice
+                && backupJob?.isActive != true
     }
 
     /** Checks for errors on backup folder and tries to return it. */
     fun getBackupFolder(): DocumentFile? = try {
         val uri = mainState.value!!.getFolder()
         val folder = DocumentFile.fromTreeUri(context, uri) ?: throw Exception("Backup folder is invalid.")
-        if (!folder.isDirectory) throw Exception("Can't access backup folder.") // Checks if not existing or not accessible
+        // Check if we have write permissions
         if (context.contentResolver.persistedUriPermissions.map { it.uri }.none { it == uri }) throw Exception("Can't write on backup folder.")
+        // Check if folder exists and is accessible
+        if (!folder.exists() || !folder.canWrite()) throw Exception("Can't access backup folder.")
         folder
     } catch (exception: Exception) {
         recoverState.value = RecoverState.Error(exception.localizedMessage)

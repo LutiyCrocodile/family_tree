@@ -57,7 +57,6 @@ public class Settings {
      */
     public boolean expert;
     public boolean shareAgreement;
-    public boolean premium;
     public DiagramSettings diagram;
 
     /**

@@ -17,7 +17,7 @@
     <string name="rin">ID автоматической записи</string>
     <string name="cause">Причина</string>
     <string name="married">Женат или замужем</string>
-    <string name="maiden">Девичья</string>
+    <string name="maiden">Девушка</string>
     <string name="phonetic">фонетически</string>
     <string name="aka">Также известен как</string>
     <string name="married_name">Замужнее имя</string>
@@ -28,16 +28,16 @@
     <string name="new_shared_note">Новая общая заметка</string>
     <string name="link_shared_media">Ссылка на общие медиафайлы</string>
     <string name="new_shared_media">Новые общие медиа</string>
-    <string name="changes_submitter">Податель изменений</string>
+    <string name="changes_submitter">Отправитель изменений</string>
     <string name="ideally_recipient">В идеале - получатель совместного использования.</string>
     <string name="submission">Отправка</string>
-    <string name="submitter">Податель</string>
+    <string name="submitter">Отправитель</string>
     <string name="corporation">Корпорация</string>
     <string name="software">Программа</string>
-    <string name="family_gem_example">Пример Family Gem</string>
+    <string name="family_gem_example">Пример Family Tree</string>
     <string name="complex_tree_advanced_tools">Это дерево выглядит довольно сложным.
 \nВы хотите видеть дополнительные инструменты для лучшего управления им\?</string>
-    <string name="make_default">Главный податель</string>
+    <string name="make_default">Главный отправитель</string>
     <string name="cant_understand_uri">Не удалось понять полученный URI.</string>
     <string name="empty_family_delete">Остались пустые семьи.
 \nВы хотите их удалить\?</string>
@@ -134,7 +134,7 @@
     <string name="prefix">Префикс</string>
     <string name="type">Тип</string>
     <string name="value">Значение</string>
-    <string name="make_main_submitter">Установить человека главным подателем дерева\?</string>
+    <string name="make_main_submitter">Установить человека главным отправителем дерева\?</string>
     <string name="copy">Копировать текст</string>
     <string name="crop">Обрезать</string>
     <string name="choose_file">Выбрать файл</string>
@@ -178,7 +178,7 @@
     <string name="relatives">Родственники</string>
     <string name="events">Атрибуты</string>
     <string name="download_shared_tree">Скачать общее дерево</string>
-    <string name="submitters">Податели</string>
+    <string name="submitters">Отправители</string>
     <string name="existing_family">Семья уже существует</string>
     <string name="new_family_of">Новая семья для %s</string>
     <string name="number_relatives">Количество родственников</string>
@@ -205,7 +205,7 @@
     <string name="family_as_spouse">Семья (как супруг/а)</string>
     <string name="family_as_child">Семья (как ребенок)</string>
     <string name="card">Профиль</string>
-    <string name="new_person">Добавить первую особу.</string>
+    <string name="new_person">Добавить первого человека.</string>
     <string name="all_imported_delete">Все обновления были импортированы.
 \nХотите удалить импортированное дерево\?</string>
     <string name="confirm">Подтвердить</string>
@@ -214,7 +214,7 @@
     <string name="ignore">Пропустить</string>
     <string name="replace">Заменить</string>
     <string name="add">Добавить</string>
-    <string name="person">Особа</string>
+    <string name="person">Человек</string>
     <string name="import_news">Импортировать обновление</string>
     <string name="updates_replace_add">Вам нужно выбрать, будут ли обновления заменять существующие элементы или добавляться как новые.</string>
     <string name="many_updates_choice">Обновлений требующих выбора: %d</string>
@@ -269,10 +269,10 @@
     <string name="open">Открыть</string>
     <string name="save">Сохранить</string>
     <string name="make_backup">Сохранить резервную ZIP-копию</string>
-    <string name="no_useful_data">Неможно получить никаких полезных данных.</string>
+    <string name="no_useful_data">Невозможно получить никаких полезных данных.</string>
     <string name="generations">Поколения</string>
     <string name="generation">Поколение</string>
-    <string name="persons">Персоны</string>
+    <string name="persons">Люди</string>
     <string name="tap_add_tree">Нажмите, чтобы добавить семейное дерево.</string>
     <string name="download">Скачать</string>
     <string name="you_can_download">Теперь вы можете скачать дерево, которым с вами поделились.</string>
@@ -330,8 +330,8 @@
     <string name="between">Между</string>
     <string name="separation">Разделение</string>
     <string name="common_law_marriage">По общему праву</string>
-    <string name="religious_marriage">Церковный</string>
-    <string name="civil_marriage">Гражданский</string>
+    <string name="religious_marriage">Церковный брак</string>
+    <string name="civil_marriage">Гражданский брак</string>
     <string name="living_apart_together">Раздельное сожительство</string>
     <string name="living_together">Сожительство</string>
     <string name="registered_partnership">Зарегистрированное партнерство</string>
@@ -365,13 +365,7 @@
     <string name="merge_complete">Объединение завершено.</string>
     <string name="choose_output">Выбрать местоположение:</string>
     <string name="generate_new">Создать новое дерево из двух</string>
-    <string name="lifetime">Пожизненно</string>
-    <string name="more_premium">Узнать больше о Premium</string>
-    <string name="premium_activated">Premium активирован.</string>
-    <string name="unlock_function">Эта функция может быть доступна с Family Gem Premium.</string>
-    <string name="update_playstore">Пожалуйста, обновите Play Store.</string>
     <string name="merge_into">Объединить %2$s в %1$s</string>
-    <string name="get_premium">Получить Premium</string>
     <string name="gedcom_only">Только файл GEDCOM</string>
     <string name="gedcom_media_zip">GEDCOM с %d медиа в ZIP-файле</string>
     <string name="error_found">Найдена одна ошибка.</string>
@@ -385,7 +379,6 @@
     <string name="fixed_date">Установленная дата</string>
     <string name="current_date">Текущая дата</string>
     <string name="birthday">День рождения</string>
-    <string name="premium_deactivated">Premium деактивирован.</string>
     <string name="choose_folder">Выбрать папку</string>
     <string name="export_png">Экспорт PNG</string>
     <string name="png_exported_ok">PNG экспортирован.</string>

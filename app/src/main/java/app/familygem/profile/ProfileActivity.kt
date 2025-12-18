@@ -218,24 +218,6 @@ class ProfileActivity : AppCompatActivity() {
     /** Setups the click listener of floating action button. */
     private fun setupFab() {
         val mainEventTags = arrayOf("BIRT", "CHR", "RESI", "OCCU", "DEAT", "BURI")
-        val otherEventTags = arrayOf(
-            "CREM", "ADOP", "BAPM", "BARM", "BATM", "BLES", "CONF", "FCOM", "ORDN",  //Events
-            "NATU", "EMIG", "IMMI", "CENS", "PROB", "WILL", "GRAD", "RETI", "EVEN",
-            "CAST", "DSCR", "EDUC", "NATI", "NCHI", "PROP", "RELI", "SSN", "TITL",  // Attributes
-            "_MILT" // User-defined
-        ) // Standard GEDCOM tags missing in the EventFact.DISPLAY_TYPE list: BASM (there is BATM instead) CHRA IDNO NMR FACT
-        val otherEvents: MutableList<Pair<String, String>> = ArrayList() // List of tag + label
-        otherEventTags.forEach {
-            val event = EventFact()
-            event.tag = it
-            var label = event.displayType
-            if (Global.settings.expert) label += " — $it"
-            otherEvents.add(Pair(it, label))
-        }
-        // Alphabetically sorted by label
-        otherEvents.sortWith { item1: Pair<String, String>, item2: Pair<String, String> ->
-            item1.second.compareTo(item2.second)
-        }
         fabView.setOnClickListener { view: View? ->
             if (Global.gc == null) return@setOnClickListener
             val popup = PopupMenu(this, view!!)
@@ -260,9 +242,6 @@ class ProfileActivity : AppCompatActivity() {
                         val label = if (Global.settings.expert) "$string — $tag" else string
                         eventSubMenu.add(0, 40 + i, 0, label)
                     }
-                    // Other events
-                    val otherSubMenu = eventSubMenu.addSubMenu(R.string.other)
-                    otherEvents.forEachIndexed { i, item -> otherSubMenu.add(0, 50 + i, 0, item.second) }
                     val noteSubMenu = menu.addSubMenu(R.string.note)
                     noteSubMenu.add(0, 22, 0, R.string.new_note)
                     noteSubMenu.add(0, 23, 0, R.string.new_shared_note)
@@ -368,21 +347,15 @@ class ProfileActivity : AppCompatActivity() {
                         }
                     }
                     else -> { // Events
-                        val keyTag = if (item.itemId >= 50) otherEvents[item.itemId - 50].first
-                        else if (item.itemId >= 40) mainEventTags[item.itemId - 40]
+                        val keyTag = if (item.itemId >= 40) mainEventTags[item.itemId - 40]
                         else null
                         if (keyTag == null) return@setOnMenuItemClickListener false
                         val event = EventFact().apply {
                             tag = keyTag
                             when (keyTag) {
-                                "EVEN" -> {
-                                    type = ""
-                                    date = ""
-                                    value = ""
-                                }
-                                "OCCU", "TITL" -> value = ""
+                                "OCCU" -> value = ""
                                 "RESI" -> place = ""
-                                "BIRT", "DEAT", "CHR", "BAPM", "BURI" -> {
+                                "BIRT", "DEAT", "CHR", "BURI" -> {
                                     place = ""
                                     date = ""
                                 }

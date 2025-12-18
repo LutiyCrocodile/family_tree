@@ -186,7 +186,6 @@
         <activity
             android:name=".CropImageActivity"
             android:label="@string/crop" />
-        <activity android:name=".purchase.PurchaseActivity" />
 
         <service
             android:name="androidx.appcompat.app.AppLocalesMetadataHolderService"
