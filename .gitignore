@@ -5,3 +5,12 @@ build/
 app/libs-source-data/
 credential.properties
 local.properties
+*.iml
+.DS_Store
+/captures
+.externalNativeBuild
+.cxx
+
+# Keep Gradle Wrapper (needed for CI/CD)
+!gradle/wrapper/gradle-wrapper.jar
+!gradle/wrapper/gradle-wrapper.properties
