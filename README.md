@@ -23,7 +23,7 @@ Family Tree — это приложение для Android для управле
 
 APK-файл можно скачать:
 
-[https://github.com/LutiyCrocodile/family_tree](https://github.com/LutiyCrocodile/family_tree/blob/master/app/release/app-release.apk)
+https://github.com/LutiyCrocodile/family_tree/blob/master/app/release/app-release.apk
 
 
 Об авторе
